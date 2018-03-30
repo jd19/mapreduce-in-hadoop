@@ -1,0 +1,21 @@
+For the equijoin :-
+    InputFormatClass = TextInputFormat (therefore the input contains the offset value and each line)
+    OutputFormatClass = TextOutputFormat
+
+
+    Mapper :- 
+
+    key = joining column (found by splitting the input text and taking the second value)
+    value = entire row
+    Also store two table names to be used in reducer
+
+
+    reducer :-
+
+    for all values of the given key in the reducer :-
+    	seperately join the table1 values and table2 values in two lists
+    if both the tables have values
+    	iterate over these values and in nested loop and combine the values and store in one string maintaing the order of table1 then table2
+    	write the output for this joining column
+
+
